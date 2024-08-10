@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.app.dto.ApiResponse;
 import com.app.dto.ChildrenDto;
+import com.app.dto.UpdateChildrenDto;
 
 public interface ChildrenService {
 
@@ -11,7 +12,7 @@ public interface ChildrenService {
 	
 	List<ChildrenDto> getAllChildren();
 	
-	ChildrenDto updateChildren(Long id ,ChildrenDto childrenDto);
+	UpdateChildrenDto updateChildren(Long id ,UpdateChildrenDto updateChildrenDto);
 	
 	ApiResponse deleteChildren(Long id);
 	

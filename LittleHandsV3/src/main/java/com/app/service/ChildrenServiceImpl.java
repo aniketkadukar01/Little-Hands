@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.app.custom_exception.ArgumentNotFound;
 import com.app.dto.ApiResponse;
 import com.app.dto.ChildrenDto;
+import com.app.dto.UpdateChildrenDto;
 import com.app.entity.Children;
 import com.app.entity.User;
 import com.app.repository.ChildrenRepository;
@@ -47,12 +48,12 @@ public class ChildrenServiceImpl implements ChildrenService {
 	}
 
 	@Override
-	public ChildrenDto updateChildren(Long id, ChildrenDto childrenDto) {
+	public UpdateChildrenDto updateChildren(Long id, UpdateChildrenDto updateChildrenDto) {
 		Children children = childrenRepository.findById(id)
 				.orElseThrow(() -> new ArgumentNotFound("Id is Invalid!!!"));
-		mapper.map(childrenDto, children);
+		mapper.map(updateChildrenDto, children);
 		childrenRepository.save(children);
-		return mapper.map(children, ChildrenDto.class);
+		return mapper.map(children, UpdateChildrenDto.class);
 	}
 
 	@Override

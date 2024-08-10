@@ -45,10 +45,16 @@ public class SecurityConfig {
 				, "/v*/api-doc*/**", "/swagger-ui/**").permitAll()
 		// only required for JS clnts (react / angular) : for the pre flight requests
 		.antMatchers(HttpMethod.OPTIONS).permitAll()
+		
 		.antMatchers("/users/getallusers"
 				,"/users/deleteuser/**").hasRole("DOCTOR")
-		.antMatchers("/childrens/addchildren").hasRole("PARENT")
-		.antMatchers("/users/updateuser/**").hasAnyRole("DOCTOR", "PARENT")
+		
+		.antMatchers("/childrens/**"
+				,"/appointments/**").hasRole("PARENT")
+		
+		.antMatchers("/users/updateuser/**"
+				,"/vaccines/**").hasAnyRole("DOCTOR", "PARENT")
+		
 		.anyRequest().authenticated()
 		.and()
 		// to tell spring sec : not to use HttpSession to store user's auth details

@@ -1,11 +1,5 @@
-package com.app.entity;
+package com.app.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 import lombok.AllArgsConstructor;
@@ -13,32 +7,22 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
-@Table(name = "vaccines")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class Vaccine {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
+public class VaccineDto {
+
 	@NotBlank(message = "Vaccine name are Mandatory!!!")
-	@Column(nullable = false)
 	private String vaccineName;
-	
+
 	@NotBlank(message = "Description are Mandatory!!!")
-	@Column(nullable = false)
 	private String description;
-	
+
 	@NotBlank(message = "Recommended Age are Mandatory!!!")
-	@Column(nullable = false)
 	private String recommendedAge;
-	
+
 	@NotBlank(message = "Side Effect are Mandatory!!!")
-	@Column(nullable = false)
 	private String sideEffect;
-	
+
 }

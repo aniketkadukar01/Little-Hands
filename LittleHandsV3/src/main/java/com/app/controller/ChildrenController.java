@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.dto.ChildrenDto;
+import com.app.dto.UpdateChildrenDto;
 import com.app.service.ChildrenService;
 
 @CrossOrigin("*")
@@ -40,9 +41,9 @@ public class ChildrenController {
 	
 	@PutMapping("/updatechildren/{id}")
 	public ResponseEntity<?> updateChildren(@PathVariable Long id 
-			,@Valid @RequestBody ChildrenDto childrenDto){
+			,@Valid @RequestBody UpdateChildrenDto updateChildrenDto){
 		return ResponseEntity.status(HttpStatus.OK)
-				.body(childrenService.updateChildren(id, childrenDto));
+				.body(childrenService.updateChildren(id, updateChildrenDto));
 	}
 	
 	@DeleteMapping("/deletechildren/{id}")

@@ -1,6 +1,7 @@
 package com.app.dto;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -36,6 +37,9 @@ public class AppointmentDto {
     @NotNull(message = "Appointment date is Mandatory!!!")
     @FutureOrPresent(message = "Appointment date must be in the future or present")
     private LocalDate appointmentDate;
+    
+    @NotNull(message = "Appointment Time is Mandatory!!!")
+    private LocalTime appointmentTime;
 
     private String reason;
 

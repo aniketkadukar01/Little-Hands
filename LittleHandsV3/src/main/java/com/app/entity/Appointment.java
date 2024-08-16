@@ -1,6 +1,7 @@
 package com.app.entity;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -50,6 +51,9 @@ public class Appointment {
 	@FutureOrPresent
 	@Column(nullable = false)
 	private LocalDate appointmentDate;
+	
+    @Column(nullable = false)
+    private LocalTime appointmentTime;
 
 	private String reason;
 
